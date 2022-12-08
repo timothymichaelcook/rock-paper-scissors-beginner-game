@@ -2,14 +2,18 @@
 
 ## PSEUDOCODE
 #DECLARE VARIABLES
-Possible choice
-Computer choice
-User choice
-Computer choice display
-User choice display
-Result choice display
-Possible choice buttons
-Result 
-#DECLARE FUNCTIONS
+#Possible choices
+#User choice
+#Computer choice
+#Random number
+#User choice display
+#Computer choice display
+#Result 
+#Result choice display
+
+##DECLARE FUNCTIONS
+#Generate computer choice function
+#Generate result
+
 
 #MAIN CODE

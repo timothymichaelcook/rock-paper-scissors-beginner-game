@@ -8,6 +8,12 @@ const computerChoiceDisplay = document.getElementById('computer-choice')
 let result
 const resultDisplay = document.getElementById('result')
 
+// ???
+possibleChoices.forEach(button => button.addEventListener('click', (e) => {
+    userChoice = e.target.id 
+    userChoiceDisplay.innerHTML = userChoice
+    playGame()
+}))
 
 //DECLARE FUNCTIONS
 function generateComputerChoice() {
@@ -55,11 +61,7 @@ function playGame() {
     compareChoices()
 }
 
-possibleChoices.forEach(button => button.addEventListener('click', (e) => {
-    userChoice = e.target.id 
-    userChoiceDisplay.innerHTML = userChoice
-    playGame()
-}))
+
 
 
 
