@@ -1,61 +1,64 @@
-// DECLARE VARIABLES ()
-const computerChoiceDisplay = document.getElementById('computer-choice')
-const userChoiceDisplay = document.getElementById('user-choice')
-const resultDisplay = document.getElementById('result')
+// DECLARE VARIABLES 
 const possibleChoices = document.querySelectorAll('button')
-let randomNumber
 let userChoice
 let computerChoice
+let randomNumber
+const userChoiceDisplay = document.getElementById('user-choice')
+const computerChoiceDisplay = document.getElementById('computer-choice')
 let result
+const resultDisplay = document.getElementById('result')
 
 
 //DECLARE FUNCTIONS
 function generateComputerChoice() {
-    randomNumber = Math.floor(Math.random() * 3) // or you can use possibleChoices.length
+    randomNumber = Math.floor(Math.random() * possibleChoices.length) // or you can use possibleChoices.length
     
     if (randomNumber === 0) {
-      computerChoice = 'rock'
+      computerChoice = 'Rock'
     }
     if (randomNumber === 1) {
-      computerChoice = 'scissors'
+      computerChoice = 'Scissors'
     }
     if (randomNumber === 2) {
-      computerChoice = 'paper'
+      computerChoice = 'Paper'
     }
     computerChoiceDisplay.innerHTML = computerChoice
   }
 
-function getResult() {
+function compareChoices() {
     if (computerChoice === userChoice) {
-        result = 'its a draw!'
+        result = 'Draw!'
     }
-    if (computerChoice === "rock" && userChoice === "paper") {
-        result = 'you win!'
+    if (computerChoice === 'Rock' && userChoice === 'Paper') {
+        result = 'You win!'
     }
-    if (computerChoice === "rock" && userChoice === "scissors") {
-        result = 'you lose...'
+    if (computerChoice === 'Rock' && userChoice === 'Scissors') {
+        result = 'You lose...'
     }
-    if (computerChoice === "paper" && userChoice === "scissors") {
-        result = 'you win!'
+    if (computerChoice === 'Paper' && userChoice === 'Scissors') {
+        result = 'You win!'
     }
-    if (computerChoice === "paper" && userChoice === "rock") {
-        result = 'you lose...'
+    if (computerChoice === 'Paper' && userChoice === 'Rock') {
+        result = 'You lose...'
     }
-    if (computerChoice === "scissors" && userChoice === "rock") {
-        result = 'you win!'
+    if (computerChoice === 'Scissors' && userChoice === 'Rock') {
+        result = 'You win!'
     }
-    if (computerChoice === "scissors" && userChoice === "paper") {
-        result = 'you lose...'
+    if (computerChoice === 'Scissors' && userChoice === 'Paper') {
+        result = 'You lose...'
     }
     resultDisplay.innerHTML = result
 }
 
-// MAIN CODE 
-possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
+function playGame() {
+    generateComputerChoice()
+    compareChoices()
+}
+
+possibleChoices.forEach(button => button.addEventListener('click', (e) => {
     userChoice = e.target.id 
     userChoiceDisplay.innerHTML = userChoice
-    generateComputerChoice()
-    getResult()
+    playGame()
 }))
 
 
